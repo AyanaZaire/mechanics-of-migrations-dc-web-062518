@@ -3,22 +3,22 @@
 #   :database => "db/artists.sqlite"
 # )
 
-sql = <<-SQL
-  CREATE TABLE IF NOT EXISTS artists (
-    id INTEGER PRIMARY KEY,
-    name TEXT,
-    genre TEXT,
-    age INTEGER,
-    hometown TEXT
-  )
-
-SQL
-
-ActiveRecord::Base.connection.execute(sql)
-
 class CreateArtists < ActiveRecord::Migration
 
-
+  # def self.create_table
+  #   sql = <<-SQL
+  #     CREATE TABLE IF NOT EXISTS artists (
+  #       id INTEGER PRIMARY KEY,
+  #       name TEXT,
+  #       genre TEXT,
+  #       age INTEGER,
+  #       hometown TEXT
+  #     )
+  #
+  #   SQL
+  #
+  #   ActiveRecord::Base.connection.execute(sql)
+  # end
 
   # def up
   #
@@ -32,7 +32,7 @@ class CreateArtists < ActiveRecord::Migration
     create_table :artists do |t|
       t.string :name
       t.string :genre
-      t.string :age
+      t.integer :age
       t.string :hometown
     end
   end
